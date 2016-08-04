@@ -1,0 +1,12 @@
+#!/bin/bash
+
+APP_PATH=`pwd`
+
+# loop through engine folders
+for D in "$APP_PATH/engines/"*
+do
+  cd "$D"
+  printf "\e[32mpulling $D: \e[0m \n"
+  git pull origin develop
+  printf "\e[32mdone!\e[0m\n\n"
+done
