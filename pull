@@ -2,6 +2,11 @@
 
 APP_PATH=`pwd`
 
+# pull parent app
+printf "\e[32mpulling $APP_PATH: \e[0m \n"
+git pull origin develop
+printf "\e[32mdone!\e[0m\n\n"
+
 # loop through engine folders
 for D in "$APP_PATH/engines/"*
 do
