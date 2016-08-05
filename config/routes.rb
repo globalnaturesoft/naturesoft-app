@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   
   Dir.glob(Rails.root.join('engines').to_s + "/*") do |d|
     eg = d.split(/[\/\\]/).last
-	if eg != "core" and Naturesoft::Core.available?(eg)
-	  mount "Naturesoft::#{eg.camelize}::Engine".constantize => "/", as: 'naturesoft_' + eg
-	end
+		if eg != "core" and Naturesoft::Core.available?(eg)
+			mount "Naturesoft::#{eg.camelize}::Engine".constantize => "/", as: 'naturesoft_' + eg
+		end
   end
 end
