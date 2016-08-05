@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 	  mount "Naturesoft::#{eg.camelize}::Engine".constantize => "/", as: 'naturesoft_' + eg
 	end
   end
+  
 end
