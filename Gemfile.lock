@@ -1,4 +1,20 @@
 PATH
+  remote: engines/articles
+  specs:
+    naturesoft_articles (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
+PATH
+  remote: engines/contacts
+  specs:
+    naturesoft_contacts (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
+PATH
   remote: engines/core
   specs:
     naturesoft_core (0.1.0)
@@ -232,6 +248,8 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   modular_engine
+  naturesoft_articles!
+  naturesoft_contacts!
   naturesoft_core!
   naturesoft_galleries!
   naturesoft_partners!
