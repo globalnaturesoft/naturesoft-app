@@ -42,6 +42,22 @@ PATH
       rails (~> 5.0.0)
 
 PATH
+  remote: engines/products
+  specs:
+    naturesoft_products (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
+PATH
+  remote: engines/projects
+  specs:
+    naturesoft_projects (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
+PATH
   remote: engines/slideshows
   specs:
     naturesoft_slideshows (0.0.1)
@@ -251,6 +267,8 @@ DEPENDENCIES
   naturesoft_contacts!
   naturesoft_core!
   naturesoft_partners!
+  naturesoft_products!
+  naturesoft_projects!
   naturesoft_slideshows!
   pg
   puma (~> 3.0)
