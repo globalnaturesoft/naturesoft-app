@@ -15,12 +15,6 @@ PATH
       rails (~> 5.0.0)
 
 PATH
-  remote: engines/contacts
-  specs:
-    naturesoft_contacts (0.0.1)
-      rails (~> 5.0.0)
-
-PATH
   remote: engines/core
   specs:
     naturesoft_core (0.1.0)
@@ -34,6 +28,14 @@ PATH
       will_paginate-bootstrap
 
 PATH
+  remote: engines/newsletters
+  specs:
+    naturesoft_newsletters (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
+PATH
   remote: engines/partners
   specs:
     naturesoft_partners (0.0.1)
@@ -42,9 +44,17 @@ PATH
       rails (~> 5.0.0)
 
 PATH
-  remote: engines/slideshows
+  remote: engines/products
   specs:
-    naturesoft_slideshows (0.0.1)
+    naturesoft_products (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
+PATH
+  remote: engines/projects
+  specs:
+    naturesoft_projects (0.0.1)
       deface
       naturesoft_core
       rails (~> 5.0.0)
@@ -248,10 +258,11 @@ DEPENDENCIES
   modular_engine
   naturesoft_articles!
   naturesoft_banners!
-  naturesoft_contacts!
   naturesoft_core!
+  naturesoft_newsletters!
   naturesoft_partners!
-  naturesoft_slideshows!
+  naturesoft_products!
+  naturesoft_projects!
   pg
   puma (~> 3.0)
   rails (~> 5.0.0)
