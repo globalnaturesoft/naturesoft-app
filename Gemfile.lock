@@ -36,25 +36,9 @@ PATH
       rails (~> 5.0.0)
 
 PATH
-  remote: engines/partners
-  specs:
-    naturesoft_partners (0.0.1)
-      deface
-      naturesoft_core
-      rails (~> 5.0.0)
-
-PATH
   remote: engines/products
   specs:
     naturesoft_products (0.0.1)
-      deface
-      naturesoft_core
-      rails (~> 5.0.0)
-
-PATH
-  remote: engines/projects
-  specs:
-    naturesoft_projects (0.0.1)
       deface
       naturesoft_core
       rails (~> 5.0.0)
@@ -260,9 +244,7 @@ DEPENDENCIES
   naturesoft_banners!
   naturesoft_core!
   naturesoft_newsletters!
-  naturesoft_partners!
   naturesoft_products!
-  naturesoft_projects!
   pg
   puma (~> 3.0)
   rails (~> 5.0.0)

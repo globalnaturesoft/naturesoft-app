@@ -66,46 +66,6 @@ ActiveRecord::Schema.define(version: 20160811032743) do
     t.index ["user_id"], name: "index_naturesoft_banners_banners_on_user_id", using: :btree
   end
 
-  create_table "naturesoft_contacts_contacts", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "address"
-    t.string   "phone"
-    t.text     "message"
-    t.string   "subject"
-    t.string   "status",     default: "active"
-    t.integer  "user_id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.index ["user_id"], name: "index_naturesoft_contacts_contacts_on_user_id", using: :btree
-  end
-
-  create_table "naturesoft_galleries_galleries", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "height"
-    t.integer  "width"
-    t.string   "image_style"
-    t.string   "status",      default: "active"
-    t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.index ["user_id"], name: "index_naturesoft_galleries_galleries_on_user_id", using: :btree
-  end
-
-  create_table "naturesoft_galleries_images", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "image"
-    t.string   "status",      default: "active"
-    t.integer  "user_id"
-    t.integer  "gallery_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.index ["gallery_id"], name: "index_naturesoft_galleries_images_on_gallery_id", using: :btree
-    t.index ["user_id"], name: "index_naturesoft_galleries_images_on_user_id", using: :btree
-  end
-
   create_table "naturesoft_newsletters_newsletters", force: :cascade do |t|
     t.string   "email"
     t.datetime "created_at", null: false
@@ -157,6 +117,7 @@ ActiveRecord::Schema.define(version: 20160811032743) do
 
   create_table "naturesoft_products_images", force: :cascade do |t|
     t.string   "image_url"
+    t.string   "title"
     t.boolean  "is_main",    default: false
     t.integer  "product_id"
     t.datetime "created_at",                 null: false
@@ -245,31 +206,6 @@ ActiveRecord::Schema.define(version: 20160811032743) do
     t.datetime "updated_at",                     null: false
     t.index ["category_id"], name: "index_naturesoft_projects_projects_on_category_id", using: :btree
     t.index ["user_id"], name: "index_naturesoft_projects_projects_on_user_id", using: :btree
-  end
-
-  create_table "naturesoft_slideshows_slides", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "image"
-    t.string   "status",       default: "active"
-    t.integer  "user_id"
-    t.integer  "slideshow_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.index ["slideshow_id"], name: "index_naturesoft_slideshows_slides_on_slideshow_id", using: :btree
-    t.index ["user_id"], name: "index_naturesoft_slideshows_slides_on_user_id", using: :btree
-  end
-
-  create_table "naturesoft_slideshows_slideshows", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "height"
-    t.integer  "width"
-    t.string   "image_style"
-    t.string   "status",      default: "active"
-    t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.index ["user_id"], name: "index_naturesoft_slideshows_slideshows_on_user_id", using: :btree
   end
 
   create_table "naturesoft_users", force: :cascade do |t|
