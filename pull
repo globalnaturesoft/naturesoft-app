@@ -15,3 +15,6 @@ do
   git pull origin develop
   printf "\e[32mdone!\e[0m\n\n"
 done
+cd "$APP_PATH"
+bundle install
+rake db:migrate
