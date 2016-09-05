@@ -59,6 +59,14 @@ PATH
       naturesoft_core
       rails (~> 5.0.0)
 
+PATH
+  remote: engines/slideshows
+  specs:
+    naturesoft_slideshows (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -264,6 +272,7 @@ DEPENDENCIES
   naturesoft_partners!
   naturesoft_products!
   naturesoft_projects!
+  naturesoft_slideshows!
   pg
   puma (~> 3.0)
   rails (~> 5.0.0)
