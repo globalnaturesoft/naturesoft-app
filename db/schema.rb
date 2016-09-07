@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901024059) do
+ActiveRecord::Schema.define(version: 20160906063602) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "naturesoft_areas_areas", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "level"
+    t.integer  "parent_id"
+    t.integer  "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_naturesoft_areas_areas_on_country_id", using: :btree
+  end
+
+  create_table "naturesoft_areas_countries", force: :cascade do |t|
+    t.string   "name"
+    t.string   "status",      default: "active"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["user_id"], name: "index_naturesoft_areas_countries_on_user_id", using: :btree
+  end
 
   create_table "naturesoft_articles_articles", force: :cascade do |t|
     t.string   "image_url"
@@ -48,32 +68,6 @@ ActiveRecord::Schema.define(version: 20160901024059) do
     t.index ["user_id"], name: "index_naturesoft_articles_categories_on_user_id", using: :btree
   end
 
-  create_table "naturesoft_banners_banners", force: :cascade do |t|
-    t.string   "image_url"
-    t.string   "name"
-    t.string   "link_url"
-    t.text     "description"
-    t.string   "status",       default: "active"
-    t.integer  "user_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "custom_order"
-    t.index ["user_id"], name: "index_naturesoft_banners_banners_on_user_id", using: :btree
-  end
-
-  create_table "naturesoft_contacts_contacts", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "address"
-    t.string   "phone"
-    t.text     "message"
-    t.string   "subject"
-    t.string   "status",     default: "active"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-  end
-
   create_table "naturesoft_galleries_galleries", force: :cascade do |t|
     t.string   "name"
     t.integer  "height"
@@ -91,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160901024059) do
     t.text     "description"
     t.string   "image"
     t.string   "status",       default: "active"
+    t.boolean  "is_main",      default: false
     t.integer  "user_id"
     t.integer  "gallery_id"
     t.datetime "created_at",                      null: false
@@ -279,6 +274,15 @@ ActiveRecord::Schema.define(version: 20160901024059) do
     t.index ["user_id"], name: "index_naturesoft_projects_categories_on_user_id", using: :btree
   end
 
+  create_table "naturesoft_projects_categories_projects", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_naturesoft_projects_categories_projects_on_category_id", using: :btree
+    t.index ["project_id"], name: "index_naturesoft_projects_categories_projects_on_project_id", using: :btree
+  end
+
   create_table "naturesoft_projects_images", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -297,11 +301,9 @@ ActiveRecord::Schema.define(version: 20160901024059) do
     t.string   "website"
     t.string   "status",       default: "active"
     t.integer  "user_id"
-    t.integer  "category_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.string   "custom_order", default: "0"
-    t.index ["category_id"], name: "index_naturesoft_projects_projects_on_category_id", using: :btree
+    t.integer  "custom_order", default: 0
     t.index ["user_id"], name: "index_naturesoft_projects_projects_on_user_id", using: :btree
   end
 
@@ -314,7 +316,7 @@ ActiveRecord::Schema.define(version: 20160901024059) do
     t.integer  "slideshow_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.string   "custom_order"
+    t.integer  "custom_order", default: 0
     t.index ["slideshow_id"], name: "index_naturesoft_slideshows_slides_on_slideshow_id", using: :btree
     t.index ["user_id"], name: "index_naturesoft_slideshows_slides_on_user_id", using: :btree
   end

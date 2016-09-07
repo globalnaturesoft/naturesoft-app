@@ -28,7 +28,16 @@ do
     # insert to Gemfile
     echo "gem 'naturesoft_$var', path: 'engines/$var'" >> "$APP_PATH/Gemfile"
     cd "$APP_PATH/engines"
-    git clone "http://github.com/globalnaturesoft/naturesoft-$var" "$var"
+    
+    # convert _ to - for git repositories
+    git_name=$var
+    for i in {1..10}      
+    do
+      git_name=${git_name/_/-}
+    done
+    
+    # clone into engine folder
+    git clone "http://github.com/globalnaturesoft/naturesoft-$git_name" "$var"
     cd "$var"
     git checkout develop
     

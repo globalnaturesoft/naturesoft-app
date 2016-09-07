@@ -1,23 +1,15 @@
 PATH
+  remote: engines/areas
+  specs:
+    naturesoft_areas (0.0.1)
+      deface
+      naturesoft_core
+      rails (~> 5.0.0)
+
+PATH
   remote: engines/articles
   specs:
     naturesoft_articles (0.0.1)
-      deface
-      naturesoft_core
-      rails (~> 5.0.0)
-
-PATH
-  remote: engines/banners
-  specs:
-    naturesoft_banners (0.0.1)
-      deface
-      naturesoft_core
-      rails (~> 5.0.0)
-
-PATH
-  remote: engines/contacts
-  specs:
-    naturesoft_contacts (0.0.1)
       deface
       naturesoft_core
       rails (~> 5.0.0)
@@ -40,14 +32,6 @@ PATH
   remote: engines/galleries
   specs:
     naturesoft_galleries (0.0.1)
-      deface
-      naturesoft_core
-      rails (~> 5.0.0)
-
-PATH
-  remote: engines/globalnaturesoft_com
-  specs:
-    naturesoft_globalnaturesoft_com (0.0.1)
       deface
       naturesoft_core
       rails (~> 5.0.0)
@@ -289,12 +273,10 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   modular_engine
+  naturesoft_areas!
   naturesoft_articles!
-  naturesoft_banners!
-  naturesoft_contacts!
   naturesoft_core!
   naturesoft_galleries!
-  naturesoft_globalnaturesoft_com!
   naturesoft_menus!
   naturesoft_partners!
   naturesoft_products!
